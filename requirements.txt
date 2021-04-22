@@ -7,5 +7,5 @@ torchvision==0.9.1+cpu
 albumentations
 opencv-python
 timm
-PIL
+Pillow
 
