@@ -4,3 +4,8 @@ numpy>=1.9.2
 pandas>=0.19
 torch==1.8.1+cpu 
 torchvision==0.9.1+cpu
+albumentations
+cv2
+timm
+PIL
+
