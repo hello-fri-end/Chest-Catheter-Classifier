@@ -1,4 +1,4 @@
-# Multi Label Classificaion using Resnet200D
+# Multi Label Classification using Resnet200D
 A dockerised web app made using streamlit that predicts incorrect placement of chest-catheters using X-Ray images.
 
 ## Description
@@ -21,6 +21,17 @@ docker run -p 8501:8501 <USERNAME>/<YOUR_IMAGE_NAME>
 ```
 
 - Open your browser and go to `http://localhost:8501/`
+
+
+## How to deploy the Streamlit app locally without Docker
+- Install the dependencies 
+```bash
+pip install -r requirements.txt
+```
+- Run the Streamlit app
+```bash
+streamlit run app.py
+```
 
 
 ### Demonstration
