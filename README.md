@@ -23,6 +23,17 @@ docker run -p 8501:8501 <USERNAME>/<YOUR_IMAGE_NAME>
 - Open your browser and go to `http://localhost:8501/`
 
 
+## How to deploy the Streamlit app locally without Docker
+- Install the dependencies 
+```bash
+pip install -r requirements.txt
+```
+- Run the Streamlit app
+```bash
+streamlit run app.py
+```
+
+
 ### Demonstration
 
 <a href="https://imgflip.com/gif/59y81c"><img src = "https://i.imgflip.com/59y81c.gif" title = "Classifier"/></a>
