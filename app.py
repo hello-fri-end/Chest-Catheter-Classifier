@@ -13,31 +13,31 @@ from model import ResNet200D
 
 
 def main():
-    #Load the trained model
+    # Load the trained model
     model = ResNet200D()
     model.load_state_dict(torch.load("./resnet200d.pth")['model'])
     model.eval()
     
-    #Heading
+    # Heading
     st.write("""
              # Incorrect Placement of Chest Catheter Detector
              """
              )
     
-    #Description
-    st.write("A Resnet-200D based image classification model to detect incorrect place of catheters on chest X-Rays")
+    # Description
+    st.write("A Resnet-200D based image classification model to detect incorrect place of catheters using chest X-Rays")
     
-    #prompt to uplaod an the X-Ray Image
+    # Prompt to upload the X-Ray Image
     file = st.file_uploader("Please upload an image file", type=["jpg", "png"])
     if file is None:
         st.text("You haven't uploaded an image file")
     else:
-        #apply some basic transformations
+        # Apply some basic transformations
         image = Image.open(file)
         st.image(image, use_column_width=True)
         image = np.array(image)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        #do a forward pass through tht model
+        # Do a forward pass through the model
         prediction = import_and_predict(image, model)
         prediction = pd.DataFrame({'ETT-Abnormal' : prediction[0],
                                    'ETT-Borderline': prediction[1],
@@ -52,10 +52,10 @@ def main():
                                    'Swan Ganz Catheter': prediction[10],
                                    }
                       , index = [0])
-        #print the probablities
+        # Print the probablities
         st.write(prediction)
-        #if any of the catheter's has > 50% probablity in 
-        #borderline or abnormal category, alert the user.
+        # If any of the catheter's has > 50% probablity in 
+        # borderline or abnormal category, alert the user.
         for i in range(len(prediction.columns)):
             if(prediction.iloc[0,i] > 0.5):
                 if(prediction.columns[i].split('-')[1] in ['Borderline', 'Abnormal']):
