@@ -1,4 +1,4 @@
-# Multi Label Classificaion using Resnet200D
+# Multi Label Classification using Resnet200D
 A dockerised web app made using streamlit that predicts incorrect placement of chest-catheters using X-Ray images.
 
 ## Description
